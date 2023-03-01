@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace WpfApp2
 {
-    internal class User
+    class User
     {
+        public int ID { get; set; }
+        public string Login { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public User() { }
+        public User(string login, string email, string password)
+        {
+           
+            Login = login;
+            Email = email;
+            Password = password;
+        }
     }
 }
