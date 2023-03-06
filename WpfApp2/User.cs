@@ -25,7 +25,7 @@ namespace WpfApp2
         public void write_user_onfile()
         {
             string user_info=this.Login+" "+this.Email+ " "+this.Password;
-            StreamWriter f=new StreamWriter(this.path);
+            StreamWriter f=new StreamWriter(this.path,true);
             f.Write(user_info);
             f.Close();
         }

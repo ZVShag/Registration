@@ -20,6 +20,7 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
+        public bool enter_button=false;
         public MainWindow()
         {
             InitializeComponent();
@@ -30,38 +31,65 @@ namespace WpfApp2
             string login=loginbox.Text.ToLower();
             string email=emailbox.Text.ToLower();
             string password=passwordbox.Password;
-            if (login.Length<6)
+            if (!enter_button)
             {
-            loginbox.ToolTip = "Недостаточная длина, должна быть не меньше 6";
-            loginbox.Background = Brushes.Red;
-            }
-            else 
-            if (password.Length < 6)
-            {
-             passwordbox.ToolTip = "Недостаточная длина, должна быть не меньше 6";
-             passwordbox.Background = Brushes.Red;
-            }
-            else   
-            if (email.Length < 6 || !email.Contains("@") || !email.Contains(".")) 
-            {
-                emailbox.ToolTip = "Некоректно введен адрес электронной почты!";
-                emailbox.Background = Brushes.Red;
+                if (login.Length < 6)
+                {
+                    loginbox.ToolTip = "Недостаточная длина, должна быть не меньше 6";
+                    loginbox.Background = Brushes.Red;
+                }
+                else
+                if (password.Length < 6)
+                {
+                    passwordbox.ToolTip = "Недостаточная длина, должна быть не меньше 6";
+                    passwordbox.Background = Brushes.Red;
+                }
+                else
+                if (email.Length < 6 || !email.Contains("@") || !email.Contains("."))
+                {
+                    emailbox.ToolTip = "Некоректно введен адрес электронной почты!";
+                    emailbox.Background = Brushes.Red;
+                }
+                else
+                {
+                    loginbox.ToolTip = "";
+                    loginbox.Background = Brushes.Transparent;
+                    passwordbox.ToolTip = "";
+                    passwordbox.Background = Brushes.Transparent;
+                    emailbox.ToolTip = "";
+                    emailbox.Background = Brushes.Transparent;
+                    User user = new User(login, email, password);
+                    user.write_user_onfile();
+                    loginbox.Text = "";
+                    emailbox.Text = "";
+                    passwordbox.Password = "";
+                    MessageBox.Show("Регистрация прошла успешно!");
+
+
+                }
             }
             else
             {
-                loginbox.ToolTip = "";
-                loginbox.Background = Brushes.Transparent;
-                passwordbox.ToolTip = "";
-                passwordbox.Background = Brushes.Transparent;
-                emailbox.ToolTip = "";
-                emailbox.Background = Brushes.Transparent;
-                User user=new User(login,email, password);
-                user.write_user_onfile();
-                loginbox.Text = "";
-                emailbox.Text = "";
-                passwordbox.Password = "";
-                MessageBox.Show("Регистрация прошла успешно!");
-                
+                if (login.Length < 6)
+                {
+                    loginbox.ToolTip = "Неверно указан логин!";
+                    loginbox.Background = Brushes.Red;
+                }
+                else
+                if (password.Length < 6)
+                {
+                    passwordbox.ToolTip = "Неверно указан пароль!";
+                    passwordbox.Background = Brushes.Red;
+                }
+                else
+                {
+                    loginbox.ToolTip = "";
+                    loginbox.Background = Brushes.Transparent;
+                    passwordbox.ToolTip = "";
+                    passwordbox.Background = Brushes.Transparent;
+
+                }
+
 
             }
             
@@ -83,6 +111,8 @@ namespace WpfApp2
             LoginLabel.Content = "Введите логин";
             RegistrButton.Content = "Войти";
             
+            enter_button = true;
+
 
 
         }
