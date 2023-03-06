@@ -55,7 +55,13 @@ namespace WpfApp2
                 passwordbox.Background = Brushes.Transparent;
                 emailbox.ToolTip = "";
                 emailbox.Background = Brushes.Transparent;
-
+                User user=new User(login,email, password);
+                user.write_user_onfile();
+                loginbox.Text = "";
+                emailbox.Text = "";
+                passwordbox.Password = "";
+                MessageBox.Show("Регистрация прошла успешно!");
+                
 
             }
             
@@ -64,6 +70,20 @@ namespace WpfApp2
 
         private void email_TextChanged(object sender, TextChangedEventArgs e)
         {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            emailbox.Visibility= Visibility.Collapsed;
+            RegistrButton.Margin = passwordbox.Margin;
+            passwordbox.Margin=emailbox.Margin;
+            PasswordLabel.Visibility=Visibility.Collapsed;
+            emailLabel.Content = "Введите пароль";
+            LoginLabel.Content = "Введите логин";
+            RegistrButton.Content = "Войти";
+            
+
 
         }
     }

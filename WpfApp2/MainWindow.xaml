@@ -11,10 +11,11 @@
         <PasswordBox x:Name="passwordbox"  HorizontalAlignment="Left" Margin="30,165,0,0" VerticalAlignment="Top" Width="191" Height="23"/>
         <TextBox x:Name="emailbox"  HorizontalAlignment="Left" Margin="30,106,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="191" Height="23"/>
         <TextBox x:Name="loginbox" HorizontalAlignment="Left" Margin="30,46,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="191" Height="24" TextChanged="email_TextChanged"/>
-        <Button Content="Зарегистрироваться" Background="Cornsilk"  HorizontalAlignment="Left" Click="Button_Click" Margin="30,213,0,0" VerticalAlignment="Top" Width="191" Height="36"/>
-        <Label Content="Придумайте логин" HorizontalAlignment="Left" Margin="66,75,0,0" VerticalAlignment="Top"/>
-        <Label Content="Придумайте пароль" HorizontalAlignment="Left" Margin="65,187,0,0" VerticalAlignment="Top"/>
-        <Label Content="Введите свой email" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" Height="31"/>
+        <Button Name="RegistrButton" Content="Зарегистрироваться" Background="Cornsilk"  HorizontalAlignment="Left" Click="Button_Click" Margin="30,213,0,0" VerticalAlignment="Top" Width="191" Height="36"/>
+        <Label Name="LoginLabel" Content="Придумайте логин" Margin="66,75,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left"/>
+        <Label Name="PasswordLabel" Content="Придумайте пароль" HorizontalAlignment="Left" Margin="65,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Name="emailLabel" Content="Введите свой email" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" Height="31" FontWeight="Bold"/>
+        <Button Content="Вход" Background="Cornsilk" HorizontalAlignment="Left" Margin="166,10,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
