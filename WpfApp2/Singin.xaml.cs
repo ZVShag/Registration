@@ -47,32 +47,36 @@ namespace WpfApp2
                 passwordbox.ToolTip = "";
                 passwordbox.Background = Brushes.Transparent;
 
-            }
-            User user=new User();
-            bool t = false;
-            using (StreamReader reader=new StreamReader(user.path))
-            {
-                string? line;
-                while ((line= await reader.ReadLineAsync())!= null)
-                {
-                    string[] us = line.Split();
-                    if ((us[0] == login) && (us[2] == password))
-                    {
-                        t = true;
-                        break;
-                    }
 
-                    
-                }
-                if (t)
+                User user = new User();
+                bool t = false;
+                using (StreamReader reader = new StreamReader(user.path))
                 {
-                    Kabinet kabinet = new Kabinet();
-                    kabinet.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Такой пользователь не зарегистрирован!");
+                    string? line;
+                    while ((line = await reader.ReadLineAsync()) != null)
+                    {
+                        string[] us = line.Split();
+                        if ((us[0] == login) && (us[2] == password))
+                        {
+                            user.Login = us[0];
+                            user.Password = us[2];
+                            user.Email = us[1];
+                            t = true;
+                        }
+
+
+                    }
+                    if (t)
+                    {
+                        Kabinet kabinet = new Kabinet();
+                        kabinet.Show();
+                        kabinet.data_kabinet(user);
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Такой пользователь не зарегистрирован!");
+                    }
                 }
             }
         }

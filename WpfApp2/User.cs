@@ -7,7 +7,7 @@ using System.IO;
 
 namespace WpfApp2
 {
-    class User
+    public class User
     {
         public int ID { get; set; }
         public string Login { get; set; }

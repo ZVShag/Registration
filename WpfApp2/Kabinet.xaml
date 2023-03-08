@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp2"
         mc:Ignorable="d"
-        Title="Kabinet" Height="450" Width="800">
+        Title="Kabinet" Height="320" Width="800">
     <Grid>
-        
+        <Image HorizontalAlignment="Left" Height="165" Margin="35,84,0,0" VerticalAlignment="Top" Width="150" Source="/userlogo.png"/>
+        <Label Name="loginlabel" Content="Имя пользователя" HorizontalAlignment="Left" Margin="240,92,0,0" VerticalAlignment="Top" Width="230" FontSize="20" FontWeight="Bold"/>
+        <Label Name="emaillabel" Content="Email пользователя" HorizontalAlignment="Left" Margin="238,142,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="edit_user_name" Content="Изменить имя пользователя ..." HorizontalAlignment="Left" Margin="480,89,0,0" VerticalAlignment="Top" Width="240" Height="30" Click="edit_user_name_Click"/>
+        <Button x:Name="edit_user_email" Content="Изменить email..." HorizontalAlignment="Left" Margin="480,144,0,0" VerticalAlignment="Top" Height="30" Width="240"/>
+        <Button x:Name="edit_user_password" Content="Изменить пароль ..." HorizontalAlignment="Left" Margin="245,199,0,0" VerticalAlignment="Top" Width="475" Height="30"/>
+        <Label Content="Личный кабинет" HorizontalAlignment="Left" Margin="284,2,0,0" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" FontStyle="Italic"/>
+
     </Grid>
 </Window>

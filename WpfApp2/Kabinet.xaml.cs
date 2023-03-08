@@ -19,9 +19,19 @@ namespace WpfApp2
     /// </summary>
     public partial class Kabinet : Window
     {
+        User kab_user= new User();
         public Kabinet()
         {
             InitializeComponent();
+        }
+        public void data_kabinet(User user)
+        {
+            loginlabel.Content=user.Login;
+            emaillabel.Content=user.Email;  
+        }
+        private void edit_user_name_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
