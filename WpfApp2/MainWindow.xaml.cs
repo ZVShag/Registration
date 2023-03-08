@@ -68,30 +68,7 @@ namespace WpfApp2
 
                 }
             }
-            else
-            {
-                if (login.Length < 6)
-                {
-                    loginbox.ToolTip = "Неверно указан логин!";
-                    loginbox.Background = Brushes.Red;
-                }
-                else
-                if (password.Length < 6)
-                {
-                    passwordbox.ToolTip = "Неверно указан пароль!";
-                    passwordbox.Background = Brushes.Red;
-                }
-                else
-                {
-                    loginbox.ToolTip = "";
-                    loginbox.Background = Brushes.Transparent;
-                    passwordbox.ToolTip = "";
-                    passwordbox.Background = Brushes.Transparent;
-
-                }
-
-
-            }
+          
             
 
         }
@@ -103,15 +80,9 @@ namespace WpfApp2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            emailbox.Visibility= Visibility.Collapsed;
-            RegistrButton.Margin = passwordbox.Margin;
-            passwordbox.Margin=emailbox.Margin;
-            PasswordLabel.Visibility=Visibility.Collapsed;
-            emailLabel.Content = "Введите пароль";
-            LoginLabel.Content = "Введите логин";
-            RegistrButton.Content = "Войти";
-            
-            enter_button = true;
+            Singin singin = new Singin();
+            singin.Show();
+            this.Hide();
 
 
 

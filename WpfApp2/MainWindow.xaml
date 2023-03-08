@@ -15,7 +15,7 @@
         <Label Name="LoginLabel" Content="Придумайте логин" Margin="66,75,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left"/>
         <Label Name="PasswordLabel" Content="Придумайте пароль" HorizontalAlignment="Left" Margin="65,187,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Name="emailLabel" Content="Введите свой email" HorizontalAlignment="Left" Margin="65,134,0,0" VerticalAlignment="Top" Height="31" FontWeight="Bold"/>
-        <Button Content="Вход" Background="Cornsilk" HorizontalAlignment="Left" Margin="166,10,0,0" VerticalAlignment="Top" Width="74" Click="Button_Click_1"/>
+        <Button Content="Вход" Background="Cornsilk" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="230" Click="Button_Click_1"/>
 
     </Grid>
 </Window>
