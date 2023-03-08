@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace WpfApp2
 {
@@ -24,7 +25,7 @@ namespace WpfApp2
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             string login=loginbox.Text;
             string password = passwordbox.Password;
@@ -46,6 +47,33 @@ namespace WpfApp2
                 passwordbox.ToolTip = "";
                 passwordbox.Background = Brushes.Transparent;
 
+            }
+            User user=new User();
+            bool t = false;
+            using (StreamReader reader=new StreamReader(user.path))
+            {
+                string? line;
+                while ((line= await reader.ReadLineAsync())!= null)
+                {
+                    string[] us = line.Split();
+                    if ((us[0] == login) && (us[2] == password))
+                    {
+                        t = true;
+                        break;
+                    }
+
+                    
+                }
+                if (t)
+                {
+                    Kabinet kabinet = new Kabinet();
+                    kabinet.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Такой пользователь не зарегистрирован!");
+                }
             }
         }
     }
