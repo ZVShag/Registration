@@ -50,7 +50,7 @@ namespace WpfApp2
 
                 List<string> list = new List<string>();
 
-                bool t = false;
+                
                 using (StreamReader reader = new StreamReader(user1.path))
                 {
                     string? line;
