@@ -28,10 +28,15 @@ namespace WpfApp2
         {
             loginlabel.Content=user.Login;
             emaillabel.Content=user.Email;  
+            kab_user.Login=user.Login;
+            kab_user.Email=user.Email;
+            kab_user.Password=user.Password;
         }
         private void edit_user_name_Click(object sender, RoutedEventArgs e)
         {
-
+            new_login new_Login = new new_login();
+            new_Login.Show();
+            this.Hide();
         }
 
         private void edit_user_email_Click(object sender, RoutedEventArgs e)

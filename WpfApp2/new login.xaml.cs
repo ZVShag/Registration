@@ -28,28 +28,28 @@ namespace WpfApp2
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             User user1 = new User();
-            string login = loginbox.Text;
+            string login = newpas.Text;
             string password = passwordbox.Password;
             if (login.Length < 6)
             {
-                loginbox.ToolTip = "Неверно указан логин!";
-                loginbox.Background = Brushes.Red;
+                newpas.ToolTip = "Неверно указан логин!";
+                newpas.Background = Brushes.Red;
             }
             else
-                if (password.Length < 6)
+            if (password.Length < 6)
             {
                 passwordbox.ToolTip = "Неверно указан пароль!";
                 passwordbox.Background = Brushes.Red;
             }
             else
             {
-                loginbox.ToolTip = "";
-                loginbox.Background = Brushes.Transparent;
+                newpas.ToolTip = "";
+                newpas.Background = Brushes.Transparent;
                 passwordbox.ToolTip = "";
                 passwordbox.Background = Brushes.Transparent;
 
-                List <string> list = new List<string>();
-                
+                List<string> list = new List<string>();
+
                 bool t = false;
                 using (StreamReader reader = new StreamReader(user1.path))
                 {
@@ -59,11 +59,11 @@ namespace WpfApp2
                         list.Add(line);
                     }
                 }
-                foreach(string line in list)
+                foreach (string line in list)
                 {
                     User user = new User();
-                    string[]us=line.Split(' ');
-                    if ((us[0] == login) && (us[2]==password))
+                    string[] us = line.Split(' ');
+                    if ((us[0] == login) && (us[2] == password))
                     {
                         user.Login = login;
                         user.Email = us[1];
@@ -78,9 +78,11 @@ namespace WpfApp2
                     }
                     user.write_user_onfile();
                 }
-                
 
 
 
+
+            }
+        }
     }
 }

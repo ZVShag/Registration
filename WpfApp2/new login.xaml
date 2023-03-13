@@ -17,7 +17,7 @@
                 </TransformGroup>
             </PasswordBox.RenderTransform>
         </PasswordBox>
-        <TextBox x:Name="loginbox" HorizontalAlignment="Left" Margin="60,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="280" Height="30" />
+        <TextBox x:Name="newpas" HorizontalAlignment="Left" Margin="60,84,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="280" Height="30" />
         <Button Name="RegistrButton" Content="Потвердить" Background="Peru"  HorizontalAlignment="Left" Click="Button_Click" Margin="104,268,0,0" VerticalAlignment="Top" Width="191" Height="36"/>
         <Label Name="LoginLabel" Content="введите новый логин" Margin="130,124,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Left" Height="35"/>
         <Label Name="PasswordLabel" Content="               введите пароль&#xA;подтвердите изменение логина" HorizontalAlignment="Center" Margin="0,202,0,0" VerticalAlignment="Top" FontWeight="ExtraBlack" Width="209"/>

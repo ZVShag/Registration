@@ -28,15 +28,15 @@ namespace WpfApp2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string login=loginbox.Text.ToLower();
+            string login=newpas.Text.ToLower();
             string email=emailbox.Text.ToLower();
             string password=passwordbox.Password;
             if (!enter_button)
             {
                 if (login.Length < 6)
                 {
-                    loginbox.ToolTip = "Недостаточная длина, должна быть не меньше 6";
-                    loginbox.Background = Brushes.Red;
+                    newpas.ToolTip = "Недостаточная длина, должна быть не меньше 6";
+                    newpas.Background = Brushes.Red;
                 }
                 else
                 if (password.Length < 6)
@@ -52,15 +52,15 @@ namespace WpfApp2
                 }
                 else
                 {
-                    loginbox.ToolTip = "";
-                    loginbox.Background = Brushes.Transparent;
+                    newpas.ToolTip = "";
+                    newpas.Background = Brushes.Transparent;
                     passwordbox.ToolTip = "";
                     passwordbox.Background = Brushes.Transparent;
                     emailbox.ToolTip = "";
                     emailbox.Background = Brushes.Transparent;
                     User user = new User(login, email, password);
                     user.write_user_onfile();
-                    loginbox.Text = "";
+                    newpas.Text = "";
                     emailbox.Text = "";
                     passwordbox.Password = "";
                     MessageBox.Show("Регистрация прошла успешно!");

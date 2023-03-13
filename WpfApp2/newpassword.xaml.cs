@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,73 +12,76 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.IO;
 
 namespace WpfApp2
 {
     /// <summary>
-    /// Логика взаимодействия для Singin.xaml
+    /// Логика взаимодействия для newpassword.xaml
     /// </summary>
-    public partial class Singin : Window
+    public partial class newpassword : Window
     {
-        public Singin()
+        public newpassword()
         {
             InitializeComponent();
         }
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            string login=newpas.Text;
+            User user1 = new User();
+            string newpas = passwordbox2.Password;
             string password = passwordbox.Password;
-            if (login.Length < 6)
+            if (newpas.Length < 6)
             {
-                newpas.ToolTip = "Неверно указан логин!";
-                newpas.Background = Brushes.Red;
+                passwordbox2.ToolTip = "Неверно указан логин!";
+                passwordbox2.Background = Brushes.Red;
             }
             else
-                if (password.Length < 6)
+            if (password.Length < 6)
             {
                 passwordbox.ToolTip = "Неверно указан пароль!";
                 passwordbox.Background = Brushes.Red;
             }
             else
             {
-                newpas.ToolTip = "";
-                newpas.Background = Brushes.Transparent;
+                passwordbox2.ToolTip = "";
+                passwordbox2.Background = Brushes.Transparent;
                 passwordbox.ToolTip = "";
                 passwordbox.Background = Brushes.Transparent;
 
+                List<string> list = new List<string>();
 
-                User user = new User();
                 bool t = false;
-                using (StreamReader reader = new StreamReader(user.path))
+                using (StreamReader reader = new StreamReader(user1.path))
                 {
                     string? line;
                     while ((line = await reader.ReadLineAsync()) != null)
                     {
-                        string[] us = line.Split();
-                        if ((us[0] == login) && (us[2] == password))
-                        {
-                            user.Login = us[0];
-                            user.Password = us[2];
-                            user.Email = us[1];
-                            t = true;
-                        }
-
-
+                        list.Add(line);
                     }
-                    if (t)
+                }
+                foreach (string line in list)
+                {
+                    User user = new User();
+                    string[] us = line.Split(' ');
+                    if ((us[2] == password))
                     {
-                        Kabinet kabinet = new Kabinet();
-                        kabinet.Show();
-                        kabinet.data_kabinet(user);
-                        this.Hide();
+                        user.Login = us[0];
+                        user.Email = us[1];
+                        user.Password = newpas;
+
                     }
                     else
                     {
-                        MessageBox.Show("Такой пользователь не зарегистрирован!");
+                        user.Login = us[0];
+                        user.Email = us[1];
+                        user.Password = us[2];
                     }
+                    user.write_user_onfile();
                 }
+
+
+
+
             }
         }
     }
