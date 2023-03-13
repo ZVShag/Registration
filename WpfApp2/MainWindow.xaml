@@ -24,7 +24,7 @@
         <Label Name="LoginLabel" Content="Придумайте логин" Margin="0,44,0,0" VerticalAlignment="Top" FontWeight="Bold" HorizontalAlignment="Center"/>
         <Label Name="PasswordLabel" Content="Придумайте пароль" HorizontalAlignment="Left" Margin="106,174,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
         <Label Name="emailLabel" Content="Введите свой email" HorizontalAlignment="Left" Margin="112,108,0,0" VerticalAlignment="Top" Height="31" FontWeight="Bold"/>
-        <Button Content="Вход" Background="Peru"  HorizontalAlignment="Center" Margin="0,-1,0,0" VerticalAlignment="Top" Width="250" Click="Button_Click_1" Height="31"/>
+        <Button Content="Вход" Background="Peru"  HorizontalAlignment="Center" Margin="0,4,0,0" VerticalAlignment="Top" Width="250" Click="Button_Click_1" Height="31" FontWeight="Bold" FontSize="18"/>
 
     </Grid>
 </Window>

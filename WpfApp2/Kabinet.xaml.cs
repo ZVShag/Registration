@@ -33,5 +33,15 @@ namespace WpfApp2
         {
 
         }
+
+        private void edit_user_email_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void edit_user_password_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
