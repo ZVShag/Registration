@@ -66,6 +66,7 @@ namespace WpfApp2
 
 
                     }
+                    reader.Close();
                     if (t)
                     {
                         Kabinet kabinet = new Kabinet();

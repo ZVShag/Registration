@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -49,8 +50,8 @@ namespace WpfApp2
                 passwordbox.Background = Brushes.Transparent;
 
                 List<string> list = new List<string>();
-
-                
+                User user = new User();
+                bool t = false;
                 using (StreamReader reader = new StreamReader(user1.path))
                 {
                     string? line;
@@ -59,9 +60,10 @@ namespace WpfApp2
                         list.Add(line);
                     }
                 }
+                
                 foreach (string line in list)
                 {
-                    User user = new User();
+                    
                     string[] us = line.Split(' ');
                     if ((us[2] == password))
                     {
@@ -69,20 +71,25 @@ namespace WpfApp2
                         user.Email = us[1];
                         user.Password = newpas;
 
+                        t = true;
                     }
-                    else
-                    {
-                        user.Login = us[0];
-                        user.Email = us[1];
-                        user.Password = us[2];
-                    }
-                    user.write_user_onfile();
+
+
                 }
+                
+            
 
+            if (t)
 
-
-
+            {
+                MessageBox.Show("Пароль успешно изменен!");
+                user.write_user_onfile();
             }
+
+
+
+
+        }
         }
     }
 }

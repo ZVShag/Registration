@@ -49,35 +49,36 @@ namespace WpfApp2
                 passwordbox.Background = Brushes.Transparent;
 
                 List<string> list = new List<string>();
-
+                List<User> Userlist=new List<User>();
+                User user = new User();
                 bool t = false;
-                using (StreamReader reader = new StreamReader(user1.path))
+                using (StreamReader reader = new StreamReader(user.path))
                 {
                     string? line;
                     while ((line = await reader.ReadLineAsync()) != null)
                     {
-                        list.Add(line);
-                    }
-                }
-                foreach (string line in list)
-                {
-                    User user = new User();
-                    string[] us = line.Split(' ');
-                    if ((us[0] == login) && (us[2] == password))
-                    {
-                        user.Login = login;
-                        user.Email = us[1];
+                        string[] us = line.Split();
+                        user.Login = us[0];
                         user.Password = us[2];
+                        user.Email = us[1];
+                        if ((user.Password == password))
+                        {
+                            user.Login = login;
+                            t = true;
+                        }
+                        Userlist.Add(user);
 
                     }
-                    else
-                    {
-                        user.Login = us[0];
-                        user.Email = us[1];
-                        user.Password = us[2];
-                    }
-                    user.write_user_onfile();
+                    reader.Close();
                 }
+                
+                if (t)
+                       
+                {
+                    MessageBox.Show("Логин успешно изменен!");
+                    user.rewrite_user_onfile(Userlist);
+                }
+                
 
 
 

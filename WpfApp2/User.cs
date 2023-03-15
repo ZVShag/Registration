@@ -29,7 +29,21 @@ namespace WpfApp2
             StreamWriter f=new StreamWriter(this.path,true);
             f.WriteLine(user_info);
             f.Close();
-            //Shifr();
+            
+        }
+        public void rewrite_user_onfile(List <User> values)
+        {
+
+            using (StreamWriter f = new StreamWriter(this.path))
+            {
+                foreach(User value in values)
+                {
+                    string user_info = value.Login + " " + value.Email + " " + value.Password;
+                    f.WriteLine(user_info);
+                }
+            }
+            
+            
         }
         public void Shifr()
         {
