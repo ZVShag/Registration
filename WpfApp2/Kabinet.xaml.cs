@@ -46,6 +46,9 @@ namespace WpfApp2
 
         private void edit_user_password_Click(object sender, RoutedEventArgs e)
         {
+            newpassword npass = new newpassword();
+            npass.Show();
+            this.Hide();
 
         }
     }
